@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .snowflake {
+      background: white;
+      border-radius: 50%;
+      height: 10px;
+      position: absolute;
+      width: 10px;
+      z-index: 1;
+      animation: snowflake 1s infinite;
+    }
+
+    @keyframes snowflake {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <!-- To add more snowflakes, simply add more divs with the "snowflake" class -->
+
+  <script>
+    const snowflakes = document.querySelectorAll('.snowflake');
+    snowflakes.forEach(snowflake => {
+      const maxTop = window.innerHeight;
+      const maxLeft = window.innerWidth;
+      const top = Math.floor(Math.random() * maxTop);
+      const left = Math.floor(Math.random() * maxLeft);
+
+      snowflake.style.top = "${top}px";
+      snowflake.style.left = "${left}px";
+    });
+   
+  </script>
+</body>
+</html>
